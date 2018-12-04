@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public static class Session
 {
@@ -10,6 +8,8 @@ public static class Session
     public static int ChapterToLoad = 0;
     public static int LevelToLoad = 0;
     public static bool LevelCompleted = false;
+    public static bool LevelRestarted = false;
+    public static bool EndGame = false;
 
     public static void QuitGame()
     {

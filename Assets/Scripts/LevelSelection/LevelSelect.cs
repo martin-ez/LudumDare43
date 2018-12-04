@@ -9,6 +9,7 @@ public class LevelSelect : MonoBehaviour
     public Transform cam;
     public GameObject levelPrefab;
     public RectTransform finishLabel;
+    public RectTransform instructions;
 
     private Level[] levels;
     private int currentChapter;
@@ -65,7 +66,7 @@ public class LevelSelect : MonoBehaviour
         {
             currentLevel++;
             //TODO Remove this
-            if (currentLevel == 2 && currentChapter == 0)
+            if (currentLevel == 3 && currentChapter == 0)
             {
                 StartCoroutine(CenterCamera(1, 2, 1.5f, 1f, false));
                 StartCoroutine(FinishGame(0f, 2.5f));
@@ -79,9 +80,16 @@ public class LevelSelect : MonoBehaviour
                 {
                     currentChapter = 2;
                     currentLevel = 4;
-                    StartCoroutine(CenterCamera(1, 2, 1.5f, 1f, false));
-                    StartCoroutine(FinishGame(0f, 2.5f));
-                    endGame = true;
+                    if (!Session.EndGame)
+                    {
+                        chapterSelect = 1;
+                        levelSelect = 2;
+                        StartCoroutine(CenterCamera(1, 2, 1.5f, 0.5f, false));
+                        StartCoroutine(FinishGame(0f, 1.5f));
+                        endGame = true;
+                        nextInput = Time.time + 3f;
+                        Session.EndGame = true;
+                    }
                 }
                 else
                 {
@@ -99,8 +107,11 @@ public class LevelSelect : MonoBehaviour
             }
             Session.CurrentChapter = currentChapter;
             Session.CurrentLevel = currentLevel;
-            levelSelect = currentLevel;
-            chapterSelect = currentChapter;
+            if (!endGame)
+            {
+                levelSelect = currentLevel;
+                chapterSelect = currentChapter;
+            }
         }
         if (!wasNewGame)
         {
@@ -116,7 +127,7 @@ public class LevelSelect : MonoBehaviour
                 StartCoroutine(CenterCamera(currentChapter, currentLevel, 1f, 0.5f, true));
                 nextInput = Time.time + 2f;
             }
-            else if (!chapterReveal)
+            else if (!chapterReveal && !endGame)
             {
                 levels[chapterSelect * 5 + levelSelect].Reveal();
             }
@@ -128,19 +139,19 @@ public class LevelSelect : MonoBehaviour
     {
         if (Time.time > nextInput)
         {
-            if (Input.GetKey(KeyCode.D))
+            if (Input.GetKey(KeyCode.D) && !endGame)
             {
                 NextLevel();
             }
-            else if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A) && !endGame)
             {
                 PreviousLevel();
             }
-            else if (Input.GetKey(KeyCode.W))
+            else if (Input.GetKey(KeyCode.W) && !endGame)
             {
                 PreviousChapter();
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S) && !endGame)
             {
                 NextChapter();
             }
@@ -149,17 +160,20 @@ public class LevelSelect : MonoBehaviour
                 if (endGame)
                 {
                     StartCoroutine(FinishGame(2000, 0f));
-                    nextInput = Time.time + 5f;
+                    StartCoroutine(CenterCamera(1, 2, 0.1f, 0f, true));
+                    nextInput = Time.time + 0.25f;
+                    endGame = false;
                 }
                 else
                 {
                     Session.ChapterToLoad = chapterSelect;
                     Session.LevelToLoad = levelSelect;
+                    Session.LevelRestarted = !(chapterSelect == currentChapter && levelSelect == currentLevel);
                     SceneManager.LoadScene("Level");
                 }
 
             }
-            else if (Input.GetKey(KeyCode.Escape))
+            if (Input.GetKey(KeyCode.Escape))
             {
                 SceneManager.LoadScene("MainMenu");
             }
@@ -286,7 +300,11 @@ public class LevelSelect : MonoBehaviour
             yield return null;
         }
         cam.position = end;
-        if (withReveal) levels[5 * chapter + level].Reveal();
+        if (withReveal)
+        {
+            levels[5 * chapter + level].Reveal();
+            instructions.gameObject.SetActive(true);
+        }
     }
 
     IEnumerator FinishGame(float end, float delay)

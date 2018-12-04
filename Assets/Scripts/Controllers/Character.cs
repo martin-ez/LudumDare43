@@ -14,10 +14,14 @@ public class Character : MonoBehaviour
     private bool ready;
     public Action OnReady;
 
+    private Vector3 from;
+    private bool depositMoney;
+
     public void Init(int player, MapBlock block)
     {
         this.player = player;
         ready = false;
+        depositMoney = false;
         currentBlock = block;
         currentBlock.OnDestroy += OnSpaceDestory;
         currentBlock.OnReady += Appear;
@@ -79,6 +83,24 @@ public class Character : MonoBehaviour
         {
             return (int)transform.position.z / 10;
         }
+    }
+
+    public void Hide()
+    {
+        depositMoney = true;
+        from = transform.position;
+        transform.Find("Model").gameObject.SetActive(false);
+    }
+
+    public void Show()
+    {
+        transform.position = from;
+        transform.Find("Model").gameObject.SetActive(true);
+    }
+
+    public bool AlreadyDeposit()
+    {
+        return depositMoney;
     }
 
     private void OnSpaceDestory()

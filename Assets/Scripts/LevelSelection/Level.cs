@@ -26,7 +26,7 @@ public class Level : MonoBehaviour
         {
             revealed = true;
             Vector3 end = new Vector3(model.localPosition.x, 0f, model.localPosition.z);
-            StartCoroutine(ModelAnimation(model.localPosition, end, 0.5f));
+            StartCoroutine(ModelAnimation(model.localPosition, end, 0.3f));
         }
     }
 
@@ -36,7 +36,7 @@ public class Level : MonoBehaviour
         {
             revealed = false;
             Vector3 end = new Vector3(model.localPosition.x, -5f, model.localPosition.z);
-            StartCoroutine(ModelAnimation(model.localPosition, end, 0.3f));
+            StartCoroutine(ModelAnimation(model.localPosition, end, 0.1f));
         }
     }
 
@@ -46,7 +46,7 @@ public class Level : MonoBehaviour
         model.gameObject.SetActive(true);
         label.gameObject.SetActive(true);
         Vector3 end = new Vector3(model.localPosition.x, -5f, model.localPosition.z);
-        StartCoroutine(ModelAnimation(model.localPosition, end, 0.3f));
+        StartCoroutine(ModelAnimation(model.localPosition, end, 0.25f));
     }
 
     IEnumerator ModelAnimation(Vector3 start, Vector3 end, float duration)

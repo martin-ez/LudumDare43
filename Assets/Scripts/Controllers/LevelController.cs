@@ -20,7 +20,7 @@ public class LevelController : MonoBehaviour
     private int[] money;
     private int fans;
 
-    private BlockBuilder.MapBuilder builder;
+    private LevelBuilder builder;
     private bool needInstrument;
     private int allMembers;
 
@@ -29,6 +29,9 @@ public class LevelController : MonoBehaviour
     private int deadMembers;
     private bool[] deadCharacters;
     private bool[] finishCharacters;
+    private bool needCharacterChange;
+    private bool showingMap = false;
+    private int currentScroll = 0;
 
     private float maxDistance;
     private float currentTime;
@@ -72,20 +75,21 @@ public class LevelController : MonoBehaviour
     {
         if (state == LevelState.Playing && characters[currentChar].IsPlayable())
         {
+            needCharacterChange = false;
             Vector3 movement = Vector3.zero;
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 movement = Vector3.forward;
             }
-            else if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
             {
                 movement = Vector3.right;
             }
-            else if (Input.GetKey(KeyCode.S))
+            else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 movement = Vector3.back;
             }
-            else if (Input.GetKey(KeyCode.A))
+            else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 movement = Vector3.left;
             }
@@ -110,34 +114,46 @@ public class LevelController : MonoBehaviour
                     FindObjectOfType<AudioManager>().PlaySound(AudioManager.Sound.No);
                 }
             }
+            if (needCharacterChange)
+            {
+                NextCharacter();
+            }
+        }
+        if (state == LevelState.Playing && Time.time > nextInput)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                nextInput = Time.time + 1f;
+                NextCharacter();
+            }
+            else if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Alpha1))
+            {
+                nextInput = Time.time + 1f;
+                ChangeCharacter(0);
+            }
+            else if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.Alpha2))
+            {
+                nextInput = Time.time + 1f;
+                ChangeCharacter(1);
+            }
+            else if (Input.GetKey(KeyCode.Keypad3) || Input.GetKey(KeyCode.Alpha3))
+            {
+                nextInput = Time.time + 1f;
+                ChangeCharacter(2);
+            }
+            else if (Input.GetKey(KeyCode.R))
+            {
+                nextInput = Time.time + 1f;
+                Restart();
+            }
         }
         if (state == LevelState.Playing)
         {
-            if (Input.GetKey(KeyCode.Space) && Time.time > nextInput)
-            {
-                NextCharacter();
-                nextInput = Time.time + 1f;
-            }
-            else if ((Input.GetKey(KeyCode.Keypad1) || (Input.GetKey(KeyCode.Alpha1)) && Time.time > nextInput))
-            {
-                ChangeCharacter(0);
-                nextInput = Time.time + 1f;
-            }
-            else if ((Input.GetKey(KeyCode.Keypad2) || (Input.GetKey(KeyCode.Alpha2)) && Time.time > nextInput))
-            {
-                ChangeCharacter(1);
-                nextInput = Time.time + 1f;
-            }
-            else if ((Input.GetKey(KeyCode.Keypad3) || (Input.GetKey(KeyCode.Alpha3)) && Time.time > nextInput))
-            {
-                ChangeCharacter(2);
-                nextInput = Time.time + 1f;
-            }
-
             currentTime += Time.deltaTime;
-            if (currentTime > builder.time * 0.2f && builder.time > 0)
+            if (builder.time > 0) ui.ChangeTimer(builder.time - (int)currentTime, builder.time);
+            if (builder.time > 0 && currentTime > builder.time * 0.5f)
             {
-                float i = currentTime / builder.time;
+                float i = currentTime / (builder.time * 0.5f);
                 float threshold = Mathf.Lerp(maxDistance, 0f, Easing.Ease(i, Easing.Functions.Linear));
                 map.Destroy(threshold);
                 if (i > 1) GameOver();
@@ -147,7 +163,7 @@ public class LevelController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space) && Time.time > nextInput)
             {
-                //TODO NextScroll
+                HandleScroll();
                 nextInput = Time.time + 1f;
             }
         }
@@ -181,7 +197,7 @@ public class LevelController : MonoBehaviour
                 jsonBlocks = chapter3Blueprints[level].text;
                 break;
         }
-        builder = BlockBuilder.Build(jsonBlocks);
+        builder = LevelBuilder.Build(jsonBlocks);
         needInstrument = !(builder.level == 0 && builder.chapter == 0);
         allMembers = 0;
         score = 0;
@@ -189,16 +205,40 @@ public class LevelController : MonoBehaviour
         deadMembers = 0;
         maxDistance = map.CreateLevel(builder.blocks, builder.money > 0, builder.fans > 0);
         map.InitMap();
-        if (builder.scrolls.Length == 0)
+        if (builder.scrolls.Length == 0 || Session.LevelRestarted)
         {
             state = LevelState.ToStart;
-            ui.LevelResume(chapter, level, (int)builder.time, builder.members, builder.money, builder.fans);
+            ui.LevelResume(builder.chapter, builder.level, (int)builder.time, builder.score, builder.money, builder.fans);
         }
         else
         {
             state = LevelState.Scrolls;
-            //TODO ui.ShowScroll();
+            HandleScroll();
         }
+    }
+
+    private void HandleScroll()
+    {
+        LevelBuilder.Scroll scroll = builder.scrolls[currentScroll];
+        if (scroll.action == "map")
+        {
+            ShowMap();
+        }
+        //TODO ui.ShowScroll()
+        currentScroll++;
+        if (currentScroll == builder.scrolls.Length)
+        {
+            state = LevelState.ToStart;
+            ui.LevelResume(builder.chapter, builder.level, (int)builder.time, builder.score, builder.money, builder.fans);
+        }
+    }
+
+    private void ShowMap()
+    {
+        map.AppearMap();
+        string place = ((builder.chapter == 1 && builder.level == 4) || builder.chapter == 2) ? "Show starts in" : "Rehearsal starts in";
+        ui.SetupMetrics(allMembers, needInstrument, builder.time, builder.money, builder.fans, place);
+        showingMap = true;
     }
 
     private void StartGame()
@@ -214,9 +254,8 @@ public class LevelController : MonoBehaviour
                 sound.TurnOff(i);
             }
         }
-        map.AppearMap();
-        ui.HideResume();
-        ui.SetupMetrics(allMembers, needInstrument, builder.money, builder.fans);
+        if (!showingMap) ShowMap();
+        ui.HideResume();  
         ChangeCharacter(0);
         state = LevelState.Playing;
         currentTime = 0;
@@ -256,8 +295,14 @@ public class LevelController : MonoBehaviour
         {
             next = next + 1;
             if (next == allMembers) next = 0;
-            if (!deadCharacters[next] && !finishCharacters[next])
+            if (!deadCharacters[next])
             {
+                if (finishCharacters[next])
+                {
+                    finishCharacters[next] = false;
+                    characters[next].Show();
+                    currentMembers--;
+                }
                 ChangeCharacter(next);
                 return;
             }
@@ -282,14 +327,20 @@ public class LevelController : MonoBehaviour
             currentMembers++;
             finishCharacters[player] = true;
             sound.PlaySound(AudioManager.Sound.Finish);
-            //TODO Calculate score
+            if (!characters[player].AlreadyDeposit())
+            {
+                score += 100;
+                score += money[player] - builder.money;
+            }
+            ui.ChangeScore(score);
+            characters[player].Hide();
             if (deadMembers + currentMembers == allMembers)
             {
                 GameOver();
             }
             else
             {
-                NextCharacter();
+                needCharacterChange = true;
             }
             return true;
         }
@@ -320,9 +371,14 @@ public class LevelController : MonoBehaviour
         sound.PlaySound(AudioManager.Sound.PickupMoney);
     }
 
-    public void CollectFans(int amaount)
+    public void CollectFans(int amount)
     {
-        fans += amaount;
+        if (fans > builder.fans)
+        {
+            score += amount;
+            ui.ChangeScore(score);
+        }
+        fans += amount;
         ui.AddFans(fans, builder.fans);
         sound.PlaySound(AudioManager.Sound.PickupFans);
     }
@@ -345,9 +401,9 @@ public class LevelController : MonoBehaviour
     public void GameOver()
     {
         state = LevelState.GameOver;
-        bool success = currentMembers >= builder.members && !(builder.fans > 0 && fans < builder.fans);
+        bool success = score >= builder.score && !(builder.fans > 0 && fans < builder.fans);
         Session.LevelCompleted = success;
-        ui.GameOver(success);
+        ui.GameOver(success, score, builder.score, fans, builder.fans);
     }
 
     public void Resume()
@@ -357,6 +413,7 @@ public class LevelController : MonoBehaviour
 
     public void Restart()
     {
+        Session.LevelRestarted = true;
         SceneManager.LoadScene("Level");
     }
 

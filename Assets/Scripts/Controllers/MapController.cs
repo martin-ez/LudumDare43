@@ -25,10 +25,10 @@ public class MapController : MonoBehaviour
         obstacles = new Dictionary<string, Obstacle>();
     }
 
-    public float CreateLevel(BlockBuilder[] blocks, bool money, bool fans)
+    public float CreateLevel(LevelBuilder.BlockBuilder[] blocks, bool money, bool fans)
     {
         float maxDistance = 0f;
-        BlockBuilder builder = null;
+        LevelBuilder.BlockBuilder builder = null;
         for (int i = 0; i < blocks.Length; i++)
         {
             builder = blocks[i];
