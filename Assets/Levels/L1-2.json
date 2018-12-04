@@ -1,0 +1,371 @@
+{
+  "chapter": 0,
+  "level": 1,
+  "time": 120,
+  "members": 1,
+  "money": 0,
+  "fans": 0,
+  "scrolls": [],
+  "blocks": [
+    {
+      "xCoord": -12,
+      "zCoord": 5,
+      "block": "ES",
+      "player": 0,
+      "variation": 3,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -12,
+      "zCoord": 4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -12,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -11,
+      "zCoord": 4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -11,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -11,
+      "zCoord": 2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -11,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -10,
+      "zCoord": 4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -10,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -10,
+      "zCoord": 2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -10,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -10,
+      "zCoord": 0,
+      "block": "BT",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "BD1",
+      "alias": []
+    },
+    {
+      "xCoord": -9,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 1,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -9,
+      "zCoord": 2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -9,
+      "zCoord": 1,
+      "block": "CO",
+      "player": 0,
+      "variation": 0,
+      "rotation": 2,
+      "code": "BD1",
+      "alias": []
+    },
+    {
+      "xCoord": -9,
+      "zCoord": 0,
+      "block": "CO",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "BD1",
+      "alias": []
+    },
+    {
+      "xCoord": -8,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -8,
+      "zCoord": 2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -8,
+      "zCoord": 1,
+      "block": "BO",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "BD1",
+      "alias": []
+    },
+    {
+      "xCoord": -8,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -7,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -6,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -6,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -6,
+      "zCoord": -1,
+      "block": "ES",
+      "player": 0,
+      "variation": 2,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": -1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -2,
+      "block": "ST",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "GD1",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": 0,
+      "block": "GO",
+      "player": 0,
+      "variation": 2,
+      "rotation": 1,
+      "code": "GD1",
+      "alias": ["-3:1","-3:-1"]
+    },
+    {
+      "xCoord": -3,
+      "zCoord": -2,
+      "block": "CO",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "GD1",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    }
+  ]
+}
