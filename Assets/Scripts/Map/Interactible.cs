@@ -117,6 +117,7 @@ public class Interactible : MonoBehaviour
     {
         currentBlock.OnDestroy -= Destroy;
         destroy = true;
+        currentBlock.RemoveInteractible();
         transform.Find("Model").gameObject.SetActive(false);
     }
 

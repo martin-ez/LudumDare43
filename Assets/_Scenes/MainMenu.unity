@@ -612,8 +612,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aab7b82f05ce454d86d1defbaeb0467, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SfxVolume: 0.75
-  MusicVolume: 1
+  SfxVolume: 0.5
+  MusicVolume: 0.8
   drummyOff:
   - {fileID: 8300000, guid: 0cdf1b73f463fce429138a9a7a0e22a7, type: 3}
   - {fileID: 8300000, guid: 73349efa1fa446d42abb078f8d92bc84, type: 3}

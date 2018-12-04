@@ -34,8 +34,8 @@ public class LevelSelect : MonoBehaviour
             {
                 chapters[i].eulerAngles = Vector3.forward * 180;
             }
-            StartCoroutine(RevealChapter(0, 3f, 1f));
-            StartCoroutine(CenterCamera(0, 0, 1.5f, 3f, true));
+            StartCoroutine(RevealChapter(0, 2f, 0.5f));
+            StartCoroutine(CenterCamera(0, 0, 0.75f, 2.75f, true));
             nextInput = Time.time + 4f;
         }
         else
@@ -85,10 +85,11 @@ public class LevelSelect : MonoBehaviour
                 }
                 else
                 {
-                    StartCoroutine(CenterCamera(currentChapter, 2, 1.5f, 1f, false));
-                    StartCoroutine(RevealChapter(currentChapter, 2, 2.5f));
-                    StartCoroutine(CenterCamera(currentChapter, 0, 1.5f, 5f, true));
-                    nextInput = Time.time + 6.6f;
+                    StartCoroutine(CenterCamera(currentChapter, 2, 1f, 0.5f, false));
+                    StartCoroutine(RevealChapter(currentChapter, 2, 2f));
+                    StartCoroutine(CenterCamera(currentChapter, 0, 1f, 4.5f, true));
+                    nextInput = Time.time + 6f;
+                    FindObjectOfType<AudioManager>().ChangeSong(currentChapter);
                     chapterReveal = true;
                 }
             }
@@ -112,14 +113,15 @@ public class LevelSelect : MonoBehaviour
             }
             if (needsReveal)
             {
-                StartCoroutine(CenterCamera(currentChapter, currentLevel, 1.5f, 1f, true));
-                nextInput = Time.time + 3f;
+                StartCoroutine(CenterCamera(currentChapter, currentLevel, 1f, 0.5f, true));
+                nextInput = Time.time + 2f;
             }
             else if (!chapterReveal)
             {
                 levels[chapterSelect * 5 + levelSelect].Reveal();
             }
         }
+        if (!chapterReveal) FindObjectOfType<AudioManager>().TurnOnAll();
     }
 
     private void LateUpdate()
@@ -147,7 +149,7 @@ public class LevelSelect : MonoBehaviour
                 if (endGame)
                 {
                     StartCoroutine(FinishGame(2000, 0f));
-                    nextInput = Time.time + 1f;
+                    nextInput = Time.time + 5f;
                 }
                 else
                 {
@@ -155,7 +157,7 @@ public class LevelSelect : MonoBehaviour
                     Session.LevelToLoad = levelSelect;
                     SceneManager.LoadScene("Level");
                 }
-                
+
             }
             else if (Input.GetKey(KeyCode.Escape))
             {
@@ -297,7 +299,7 @@ public class LevelSelect : MonoBehaviour
         {
             time += Time.deltaTime;
             i = time / 1f;
-            finishLabel.localPosition = Vector3.up *  Mathf.Lerp(start, end, Easing.Ease(i, Easing.Functions.CubicEaseInOut));
+            finishLabel.localPosition = Vector3.up * Mathf.Lerp(start, end, Easing.Ease(i, Easing.Functions.CubicEaseInOut));
             yield return null;
         }
         finishLabel.localPosition = Vector3.up * end;

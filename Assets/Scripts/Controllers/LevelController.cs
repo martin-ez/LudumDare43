@@ -159,7 +159,7 @@ public class LevelController : MonoBehaviour
                 nextInput = Time.time + 1f;
             }
         }
-        else if (Input.GetKey(KeyCode.Escape) && Time.time > nextInput)
+        if (Input.GetKey(KeyCode.Escape) && Time.time > nextInput)
         {
             TogglePause();
             nextInput = Time.time + 1f;
@@ -189,14 +189,6 @@ public class LevelController : MonoBehaviour
         deadMembers = 0;
         maxDistance = map.CreateLevel(builder.blocks, builder.money > 0, builder.fans > 0);
         map.InitMap();
-        if (sound.GetChapter() != chapter)
-        {
-            sound.ChangeChapter(chapter, allMembers);
-        }
-        else
-        {
-            sound.ChangeLevel(allMembers);
-        }
         if (builder.scrolls.Length == 0)
         {
             state = LevelState.ToStart;
@@ -211,6 +203,17 @@ public class LevelController : MonoBehaviour
 
     private void StartGame()
     {
+        for (int i = 0; i < 3; i++)
+        {
+            if (i < allMembers)
+            {
+                sound.TurnFilter(i);
+            }
+            else
+            {
+                sound.TurnOff(i);
+            }
+        }
         map.AppearMap();
         ui.HideResume();
         ui.SetupMetrics(allMembers, needInstrument, builder.money, builder.fans);
@@ -232,7 +235,7 @@ public class LevelController : MonoBehaviour
     public void OnCharacterDeath(int player)
     {
         deadMembers++;
-        sound.KillPlayer(player);
+        sound.TurnOff(player);
         deadCharacters[player] = true;
         ui.KillCharacter(player);
         if (deadMembers + currentMembers == allMembers)
@@ -306,7 +309,7 @@ public class LevelController : MonoBehaviour
     {
         instruments[player] = true;
         ui.AddInstrument(player);
-        sound.TogglePlayer(player, 0f);
+        sound.TurnOn(player);
         sound.PlaySound(AudioManager.Sound.PickupInstruments);
     }
 
