@@ -34,7 +34,14 @@ public abstract class MapBlock : MonoBehaviour
 
     public virtual void Init()
     {
-        return;
+        if (transform.Find("Model/Paint") != null)
+        {
+            Renderer[] rend = transform.Find("Model/Paint").GetComponentsInChildren<Renderer>();
+            for (int i = 0; i < rend.Length; i++)
+            {
+                rend[i].material = playerMaterials[player];
+            }
+        }      
     }
 
     public virtual void Appear()

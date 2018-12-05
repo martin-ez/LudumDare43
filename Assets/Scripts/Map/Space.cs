@@ -5,9 +5,10 @@ using UnityEngine;
 public class Space : MapBlock
 {
     public GameObject movingBlockPrefab;
-    public GameObject instrumentPrefab;
+    public GameObject[] instrumentPrefabs;
     public GameObject moneyPrefab;
     public GameObject fansPrefab;
+    public GameObject grassPrefab;
 
     private bool spawnMoney;
     private bool spawnFans;
@@ -90,6 +91,17 @@ public class Space : MapBlock
 
     public void SetUpVariation(int variation, bool spawnMoney, bool spawnFans)
     {
+        if (variation == 0)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                GameObject grass = Instantiate(grassPrefab);
+                grass.transform.SetParent(transform);
+                grass.transform.localScale = Random.insideUnitSphere;
+                grass.transform.localPosition = new Vector3(Random.Range(-4, 4), -0.2f, Random.Range(-4, 4));
+                grass.transform.eulerAngles = Random.insideUnitSphere * 180;
+            }
+        }
         this.spawnMoney = spawnMoney;
         this.spawnFans = spawnFans;
         GameObject toCreate = null;
@@ -101,7 +113,7 @@ public class Space : MapBlock
                 toCreate = movingBlockPrefab;
                 break;
             case 2:
-                toCreate = instrumentPrefab;
+                toCreate = instrumentPrefabs[player];
                 break;
             case 3:
                 character = true;

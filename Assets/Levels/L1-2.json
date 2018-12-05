@@ -1,11 +1,20 @@
 {
   "chapter": 0,
   "level": 1,
-  "time": 120,
+  "time": 60,
   "score": 100,
   "money": 0,
   "fans": 0,
-  "scrolls": [],
+  "scrolls": [
+    {
+      "action": "",
+      "text": "Drummy had a shiny new drum set, and was desperate to try it out.         \nBut the way to the rehearsal place was rather unusual."
+    },
+    {
+      "action": "map",
+      "text": "In each level, you need to help Drummy get to the rehearsal place. But remeber to collect your instrument first and get there in time!\n\nYou can restart a level, if necessary, with <b>R</b> or on the pause menu."
+    }
+  ],
   "blocks": [
     {
       "xCoord": -12,

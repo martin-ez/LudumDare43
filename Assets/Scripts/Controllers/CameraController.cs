@@ -51,6 +51,7 @@ public class CameraController : MonoBehaviour
         {
             transform.SetParent(character.transform);
             StartCoroutine(CenterAnimation());
+            StartCoroutine(ZoomAnimation());
         }
         else
         {
@@ -75,7 +76,7 @@ public class CameraController : MonoBehaviour
         {
             time += Time.deltaTime;
             i = time / 0.75f;
-            transform.localPosition = Vector3.Lerp(start, Vector3.zero, Easing.Ease(i, Easing.Functions.CubicEaseInOut));
+            transform.localPosition = Vector3.Lerp(start, Vector3.zero, Easing.Ease(i, Easing.Functions.CubicEaseOut));
             yield return null;
         }
     }
@@ -85,7 +86,7 @@ public class CameraController : MonoBehaviour
         float distance = 1;
         while (distance > 0)
         {
-            distance = Vector3.Distance(transform.position, cam.transform.position) - 70;
+            distance = Vector3.Distance(transform.position, cam.transform.position) - 60;
             cam.transform.Translate(Vector3.forward * Time.deltaTime * 80);
             yield return null;
         }

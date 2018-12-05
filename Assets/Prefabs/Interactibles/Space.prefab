@@ -83,7 +83,7 @@ Transform:
   m_GameObject: {fileID: 1760833389640970}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.5, z: 0}
-  m_LocalScale: {x: 9.5, y: 1, z: 9.5}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 4962982099870562}
   m_RootOrder: 0
@@ -116,7 +116,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 764ce3f1e0619894eb64494e85fa29a8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,16 +166,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd8a34d5dfb4e247a074c94f44d0872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMaterials: []
   movingBlockPrefab: {fileID: 1514700250135532, guid: 26b659cd428ff24469e9e5e25084b939,
     type: 2}
-  instrumentPrefab: {fileID: 1449393882502586, guid: b4a3ed5244750a14da660c77fcb38c0a,
-    type: 2}
+  instrumentPrefabs:
+  - {fileID: 1441355218004762, guid: 05ac40b8205bc3a48b9ceef0daf70a8f, type: 2}
+  - {fileID: 1449393882502586, guid: b4a3ed5244750a14da660c77fcb38c0a, type: 2}
+  - {fileID: 1629767921256838, guid: f172ea829657b1144b19fada94426e8f, type: 2}
   moneyPrefab: {fileID: 1240278799827086, guid: 0255cbc1bf9ad09459bc1d00c9aa02a0,
     type: 2}
   fansPrefab: {fileID: 1422620614813164, guid: 45a8b35c68d57104c8cd69eea0c858e3, type: 2}
-  characterPrefab: {fileID: 1798185904100320, guid: 56a108c775c1e8f4ca2433ea8dd38fb0,
+  grassPrefab: {fileID: 1780519923172664, guid: 3d44877a528df4e4b9af08957cb82e9a,
     type: 2}
-  type: 0
 --- !u!114 &114889656955906792
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,9 +189,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccd8a34d5dfb4e247a074c94f44d0872, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerMaterials: []
   movingBlockPrefab: {fileID: 0}
-  instrumentPrefab: {fileID: 0}
+  instrumentPrefabs: []
   moneyPrefab: {fileID: 0}
   fansPrefab: {fileID: 0}
-  characterPrefab: {fileID: 0}
-  type: 0
+  grassPrefab: {fileID: 0}

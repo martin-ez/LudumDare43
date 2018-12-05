@@ -158,8 +158,8 @@ public class Character : MonoBehaviour
         while (i < 1)
         {
             time += Time.deltaTime;
-            i = time / 1.5f;
-            transform.position = Vector3.Lerp(start, currentBlock.transform.position, Easing.Ease(i, Easing.Functions.CubicEaseInOut));
+            i = time / 0.75f;
+            transform.position = Vector3.Lerp(start, currentBlock.transform.position, Easing.Ease(i, Easing.Functions.CubicEaseOut));
             yield return null;
         }
         transform.position = currentBlock.transform.position;

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelController : MonoBehaviour
 {
@@ -164,7 +165,7 @@ public class LevelController : MonoBehaviour
             if (Input.GetKey(KeyCode.Space) && Time.time > nextInput)
             {
                 HandleScroll();
-                nextInput = Time.time + 1f;
+                nextInput = Time.time + 0.75f;
             }
         }
         else if (state == LevelState.ToStart)
@@ -184,6 +185,7 @@ public class LevelController : MonoBehaviour
 
     private void CreateLevel(int chapter, int level)
     {
+        transform.Find("Goal/Title/Canvas/Text").GetComponent<Text>().text = (chapter == 0 && level == 0) ? "Music Store" : (chapter == 2 || (chapter == 1 && level == 4)) ? "Venue" : "Rehearsal";
         string jsonBlocks = "";
         switch (chapter)
         {
@@ -213,31 +215,62 @@ public class LevelController : MonoBehaviour
         else
         {
             state = LevelState.Scrolls;
-            HandleScroll();
+            currentScroll = 0;
+            LevelBuilder.Scroll scroll = builder.scrolls[currentScroll];
+            if (scroll.action.StartsWith("map"))
+            {
+                ShowMap();
+            }
+            else if (scroll.action.StartsWith("character"))
+            {
+                ChangeCharacter(int.Parse(scroll.action.Split(':')[1]));
+            }
+            ui.ShowScroll(scroll.text);
+            if (currentScroll == builder.scrolls.Length)
+            {
+                state = LevelState.ToStart;
+                ui.HideScroll();
+                ui.LevelResume(builder.chapter, builder.level, (int)builder.time, builder.score, builder.money, builder.fans);
+            }
+            nextInput = Time.time + 0.5f;
         }
     }
 
     private void HandleScroll()
     {
         LevelBuilder.Scroll scroll = builder.scrolls[currentScroll];
-        if (scroll.action == "map")
+        if (ui.OnScroll())
         {
-            ShowMap();
+            ui.SkipScroll(scroll.text);
         }
-        //TODO ui.ShowScroll()
-        currentScroll++;
-        if (currentScroll == builder.scrolls.Length)
+        else
         {
-            state = LevelState.ToStart;
-            ui.LevelResume(builder.chapter, builder.level, (int)builder.time, builder.score, builder.money, builder.fans);
+            currentScroll++;
+            if (currentScroll == builder.scrolls.Length)
+            {
+                state = LevelState.ToStart;
+                ui.HideScroll();
+                ui.LevelResume(builder.chapter, builder.level, (int)builder.time, builder.score, builder.money, builder.fans);
+            }
+            else
+            {
+                scroll = builder.scrolls[currentScroll];
+                if (scroll.action.StartsWith("map"))
+                {
+                    ShowMap();
+                }
+                else if (scroll.action.StartsWith("char"))
+                {
+                    ChangeCharacter(int.Parse(scroll.action.Split(':')[1]));
+                }
+                ui.ShowScroll(scroll.text);
+            }
         }
     }
 
     private void ShowMap()
     {
         map.AppearMap();
-        string place = ((builder.chapter == 1 && builder.level == 4) || builder.chapter == 2) ? "Show starts in" : "Rehearsal starts in";
-        ui.SetupMetrics(allMembers, needInstrument, builder.time, builder.money, builder.fans, place);
         showingMap = true;
     }
 
@@ -255,7 +288,9 @@ public class LevelController : MonoBehaviour
             }
         }
         if (!showingMap) ShowMap();
-        ui.HideResume();  
+        ui.HideResume();
+        string place = ((builder.chapter == 1 && builder.level == 4) || builder.chapter == 2) ? "Show starts in" : "Rehearsal starts in";
+        ui.SetupMetrics(allMembers, needInstrument, builder.time, builder.money, builder.fans, place);
         ChangeCharacter(0);
         state = LevelState.Playing;
         currentTime = 0;

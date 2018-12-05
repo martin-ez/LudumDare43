@@ -19,11 +19,7 @@ public class Obstacle : MapBlock
 
     public override void Init()
     {
-        Renderer[] rend = transform.Find("Model").GetComponentsInChildren<Renderer>();
-        for (int i = 0; i < rend.Length; i++)
-        {
-            rend[i].material = playerMaterials[player];
-        }
+        base.Init();
         state = false;
     }
 
@@ -45,6 +41,12 @@ public class Obstacle : MapBlock
         StopAllCoroutines();
         StartCoroutine(StateAnimation());
     }
+
+    public bool GetState()
+    {
+        return state;
+    }
+
 
     IEnumerator StateAnimation()
     {

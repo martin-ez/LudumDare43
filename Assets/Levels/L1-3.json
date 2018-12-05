@@ -1,144 +1,37 @@
 {
   "chapter": 0,
   "level": 2,
-  "time": 120,
+  "time": 60,
   "score": 200,
   "money": 0,
   "fans": 0,
-  "scrolls": [],
+  "scrolls": [
+    {
+      "action": "",
+      "text": "I know what you are thinking...         \nDBK is a trio, when does the rest of the guys come in to play?"
+    },
+    {
+      "action": "map",
+      "text": "Well, you're rigth. Drummy was getting bored playing alone.         \n\nHe met <b>Bassy</b>, a really nice guy, and they started rehearsaing together."
+    },
+    {
+      "action": "char:1",
+      "text": "Same as Drummy, Bassy needs to pick up his instrument and get to rehearsal in time.\n\n - Change characters with <b>Space</b> or using the NumPad."
+    }
+  ],
   "blocks": [
     {
       "xCoord": -7,
-      "zCoord": 0,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -7,
-      "zCoord": -1,
-      "block": "BT",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -7,
-      "zCoord": -2,
-      "block": "CO",
-      "player": 0,
-      "variation": 1,
-      "rotation": 0,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -7,
-      "zCoord": -3,
-      "block": "CO",
-      "player": 0,
-      "variation": 1,
-      "rotation": 0,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -7,
-      "zCoord": -4,
-      "block": "CO",
-      "player": 0,
-      "variation": 0,
-      "rotation": 1,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -6,
-      "zCoord": 0,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -6,
-      "zCoord": -1,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -6,
-      "zCoord": -4,
-      "block": "CO",
-      "player": 0,
-      "variation": 1,
-      "rotation": 1,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -5,
-      "zCoord": 0,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -5,
-      "zCoord": -1,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -5,
-      "zCoord": -4,
-      "block": "CO",
-      "player": 0,
-      "variation": 1,
-      "rotation": 1,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -4,
-      "zCoord": 5,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -4,
       "zCoord": 4,
       "block": "ES",
       "player": 0,
-      "variation": 0,
+      "variation": 3,
       "rotation": 0,
       "code": "",
       "alias": []
     },
     {
-      "xCoord": -4,
+      "xCoord": -7,
       "zCoord": 3,
       "block": "ES",
       "player": 0,
@@ -148,7 +41,7 @@
       "alias": []
     },
     {
-      "xCoord": -4,
+      "xCoord": -7,
       "zCoord": 2,
       "block": "ES",
       "player": 0,
@@ -158,7 +51,7 @@
       "alias": []
     },
     {
-      "xCoord": -4,
+      "xCoord": -7,
       "zCoord": 1,
       "block": "ES",
       "player": 0,
@@ -168,7 +61,7 @@
       "alias": []
     },
     {
-      "xCoord": -4,
+      "xCoord": -7,
       "zCoord": 0,
       "block": "ES",
       "player": 0,
@@ -178,7 +71,7 @@
       "alias": []
     },
     {
-      "xCoord": -4,
+      "xCoord": -7,
       "zCoord": -1,
       "block": "ES",
       "player": 0,
@@ -188,47 +81,7 @@
       "alias": []
     },
     {
-      "xCoord": -4,
-      "zCoord": -4,
-      "block": "CO",
-      "player": 0,
-      "variation": 1,
-      "rotation": 1,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -3,
-      "zCoord": 6,
-      "block": "ES",
-      "player": 0,
-      "variation": 3,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -3,
-      "zCoord": 5,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -3,
-      "zCoord": 4,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -3,
+      "xCoord": -6,
       "zCoord": 3,
       "block": "ES",
       "player": 0,
@@ -238,7 +91,7 @@
       "alias": []
     },
     {
-      "xCoord": -3,
+      "xCoord": -6,
       "zCoord": 2,
       "block": "ES",
       "player": 0,
@@ -248,7 +101,7 @@
       "alias": []
     },
     {
-      "xCoord": -3,
+      "xCoord": -6,
       "zCoord": 1,
       "block": "ES",
       "player": 0,
@@ -258,7 +111,7 @@
       "alias": []
     },
     {
-      "xCoord": -3,
+      "xCoord": -6,
       "zCoord": 0,
       "block": "ES",
       "player": 0,
@@ -268,7 +121,7 @@
       "alias": []
     },
     {
-      "xCoord": -3,
+      "xCoord": -6,
       "zCoord": -1,
       "block": "ES",
       "player": 0,
@@ -278,47 +131,7 @@
       "alias": []
     },
     {
-      "xCoord": -3,
-      "zCoord": -4,
-      "block": "CO",
-      "player": 0,
-      "variation": 1,
-      "rotation": 1,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -3,
-      "zCoord": -6,
-      "block": "ES",
-      "player": 1,
-      "variation": 3,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -2,
-      "zCoord": 4,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -2,
-      "zCoord": 3,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -2,
+      "xCoord": -5,
       "zCoord": 1,
       "block": "ES",
       "player": 0,
@@ -328,7 +141,7 @@
       "alias": []
     },
     {
-      "xCoord": -2,
+      "xCoord": -5,
       "zCoord": 0,
       "block": "ES",
       "player": 0,
@@ -338,7 +151,7 @@
       "alias": []
     },
     {
-      "xCoord": -2,
+      "xCoord": -5,
       "zCoord": -1,
       "block": "ES",
       "player": 0,
@@ -348,144 +161,254 @@
       "alias": []
     },
     {
-      "xCoord": -2,
-      "zCoord": -4,
-      "block": "CO",
-      "player": 0,
-      "variation": 1,
-      "rotation": 1,
-      "code": "GD1",
-      "alias": []
-    },
-    {
-      "xCoord": -2,
-      "zCoord": -6,
-      "block": "ES",
-      "player": 1,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -2,
-      "zCoord": -7,
-      "block": "ES",
-      "player": 1,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -1,
-      "zCoord": 4,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -1,
-      "zCoord": 3,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -1,
-      "zCoord": -2,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -1,
-      "zCoord": -3,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -1,
-      "zCoord": -5,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -1,
-      "zCoord": -6,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": -1,
-      "zCoord": -7,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": 0,
-      "zCoord": 3,
-      "block": "ES",
-      "player": 0,
-      "variation": 2,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": 0,
-      "zCoord": -2,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": 0,
-      "zCoord": -3,
-      "block": "ES",
-      "player": 0,
-      "variation": 0,
-      "rotation": 0,
-      "code": "",
-      "alias": []
-    },
-    {
-      "xCoord": 0,
-      "zCoord": -4,
+      "xCoord": -4,
+      "zCoord": 0,
       "block": "GO",
+      "player": 1,
+      "variation": 2,
+      "rotation": 1,
+      "code": "GB1",
+      "alias": ["-4:1","-4:-1"]
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -2,
+      "block": "CO",
+      "player": 1,
+      "variation": 1,
+      "rotation": 0,
+      "code": "GB1",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -3,
+      "block": "CO",
+      "player": 1,
+      "variation": 1,
+      "rotation": 0,
+      "code": "GB1",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -4,
+      "block": "BT",
+      "player": 1,
+      "variation": 0,
+      "rotation": 0,
+      "code": "GB1",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -6,
+      "block": "ES",
+      "player": 1,
+      "variation": 3,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": -1,
+      "block": "ES",
       "player": 0,
       "variation": 2,
       "rotation": 0,
-      "code": "GD1",
-      "alias": ["-1:-4","1:-4"]
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": -6,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -6,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -7,
+      "block": "ES",
+      "player": 1,
+      "variation": 2,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -5,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -6,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -7,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 0,
+      "zCoord": -2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 0,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 0,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
     },
     {
       "xCoord": 0,
@@ -531,8 +454,18 @@
       "xCoord": 1,
       "zCoord": -3,
       "block": "ES",
-      "player": 1,
-      "variation": 2,
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 1,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
       "rotation": 0,
       "code": "",
       "alias": []

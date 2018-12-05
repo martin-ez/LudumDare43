@@ -5,7 +5,20 @@
   "score": 100,
   "money": 0,
   "fans": 0,
-  "scrolls": [],
+  "scrolls": [
+    {
+      "action": "",
+      "text": "DBK... What a lengendary band.         \nEverybody knows them and their songs. But believe it or not, they started from the bottom, like everyone else."
+    },
+    {
+      "action": "map",
+      "text": "One day, a person decided that he need a new instrument. His old one was destroyed by the constant use."
+    },
+    {
+      "action": "char:0",
+      "text": "This is <b>Drummy</b>. With your help he's gonna get to the store to buy a new drum set.\n\n - Move him using <b>WASD</b>.\n - Move the camera dragging with your mouse and zoom with the scroll wheel.\n - Interact with object walking to them."
+    }
+  ],
   "blocks": [
     {
       "xCoord": -7,

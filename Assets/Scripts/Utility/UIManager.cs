@@ -10,11 +10,14 @@ public class UIManager : MonoBehaviour
 
     public RectTransform gameOverPanel;
     public RectTransform pausePanel;
+    public RectTransform scrollPanel;
     public RectTransform resumePanel;
     public RectTransform metricsPanel;
     public RectTransform scorePanel;
 
     private RectTransform[] playersPanel;
+
+    private bool OnScrollAnimation = false;
 
     public void GameOver(bool success, int score, int minScore, int fans, int minFans)
     {
@@ -28,6 +31,30 @@ public class UIManager : MonoBehaviour
     public void Pause(bool on)
     {
         StartCoroutine(MovePanel(pausePanel, on ? 0f : -2000f, 0.3f, 0f));
+    }
+
+    public void ShowScroll(string text)
+    {
+        Text textComponent = scrollPanel.Find("Panel/Text").GetComponent<Text>();
+        StartCoroutine(MovePanel(scrollPanel, 0f, 0.5f, 0f));
+        StartCoroutine(ScrollTextAnimation(textComponent, text, 0.5f));
+    }
+
+    public void SkipScroll(string text)
+    {
+        StopAllCoroutines();
+        scrollPanel.Find("Panel/Text").GetComponent<Text>().text = text;
+        OnScrollAnimation = false;
+    }
+
+    public void HideScroll()
+    {
+        StartCoroutine(MovePanel(scrollPanel, 2000f, 0.5f, 0f));
+    }
+
+    public bool OnScroll()
+    {
+        return OnScrollAnimation;
     }
 
     public void LevelResume(int chapter, int level, int time, int score, int money, int fans)
@@ -112,9 +139,12 @@ public class UIManager : MonoBehaviour
 
     public void SetActiveCharacter(int character)
     {
-        for (int i = 0; i < 3; i++)
+        if (playersPanel != null)
         {
-            playersPanel[i].Find("Active").gameObject.SetActive(character == i);
+            for (int i = 0; i < 3; i++)
+            {
+                playersPanel[i].Find("Active").gameObject.SetActive(character == i);
+            }
         }
     }
 
@@ -154,17 +184,17 @@ public class UIManager : MonoBehaviour
     IEnumerator MovePanel(RectTransform panel, float end, float duration, float delay)
     {
         yield return new WaitForSeconds(delay);
-        float start = panel.localPosition.y;
+        float start = panel.anchoredPosition.y;
         float i = 0;
         float time = 0;
         while (i < 1)
         {
             time += Time.deltaTime;
             i = time / duration;
-            panel.localPosition = Vector3.up * Mathf.Lerp(start, end, Easing.Ease(i, Easing.Functions.CubicEaseInOut));
+            panel.anchoredPosition = Vector3.up * Mathf.Lerp(start, end, Easing.Ease(i, Easing.Functions.CubicEaseInOut));
             yield return null;
         }
-        panel.localPosition = Vector3.up * end;
+        panel.anchoredPosition = Vector3.up * end;
     }
 
     IEnumerator GameOverStats(int score, int minScore, int fans, int minFans, bool success, float delay)
@@ -197,5 +227,25 @@ public class UIManager : MonoBehaviour
         {
             statText.color = failColor;
         }
+    }
+
+    IEnumerator ScrollTextAnimation(Text component, string text, float delay)
+    {
+        OnScrollAnimation = true;
+        component.text = "";
+        yield return new WaitForSeconds(delay);
+        float duration = text.Length * 0.025f;
+        float i = 0;
+        float time = 0;
+        while (i < 1)
+        {
+            time += Time.deltaTime;
+            i = time / duration;
+            int currentLength = (int)Mathf.Lerp(0, text.Length, i);
+            component.text = text.Substring(0, currentLength);
+            yield return null;
+        }
+        component.text = text;
+        OnScrollAnimation = false;
     }
 }

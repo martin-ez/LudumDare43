@@ -8,11 +8,7 @@ public class Connector : MapBlock {
 
     public override void Init()
     {
-        Renderer[] rend = transform.Find("Model").GetComponentsInChildren<Renderer>();
-        for (int i = 0; i < rend.Length; i++)
-        {
-            rend[i].material = playerMaterials[player];
-        }
+        base.Init();
         obstacle = map.GetObstacle(code);
         obstacle.OnDestroy += ObstacleDestroy;
         obstacle.OnChangeState += ObstacleChange;

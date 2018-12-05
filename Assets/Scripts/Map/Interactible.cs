@@ -29,7 +29,7 @@ public class Interactible : MonoBehaviour
 
     public virtual void Init(MapBlock block, int player)
     {
-        Renderer[] rend = transform.Find("Model").GetComponentsInChildren<Renderer>();
+        Renderer[] rend = transform.Find("Model/Paint").GetComponentsInChildren<Renderer>();
         for (int i = 0; i < rend.Length; i++)
         {
             rend[i].material = playerMaterials[player];
@@ -125,6 +125,14 @@ public class Interactible : MonoBehaviour
     {
         currentBlock.OnReady -= Appear;
         StartCoroutine(InitAnimation());
+    }
+
+    private void Update()
+    {
+        if (!destroy && (type == InteractibleType.Instrument || type == InteractibleType.Money))
+        {
+            if (type == InteractibleType.Instrument || type == InteractibleType.Money) transform.Rotate(Vector3.up * Time.deltaTime * 15);
+        }
     }
 
     IEnumerator InitAnimation()
