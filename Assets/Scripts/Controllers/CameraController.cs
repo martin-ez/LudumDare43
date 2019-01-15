@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
 
     private bool dragging = false;
     private Vector3 mousePos;
+    private float currentZoom = 60f;
 
     void Start()
     {
@@ -37,9 +38,10 @@ public class CameraController : MonoBehaviour
             dragging = false;
         }
 
-        if ((Input.GetAxis("Mouse ScrollWheel") > 0f && Vector3.Distance(transform.position, cam.transform.position) > 50) || (Input.GetAxis("Mouse ScrollWheel") < 0f && Vector3.Distance(transform.position, cam.transform.position) < 400))
+        if ((Input.GetAxis("Mouse ScrollWheel") > 0f && currentZoom > 40) || (Input.GetAxis("Mouse ScrollWheel") < 0f && currentZoom < 200))
         {
             cam.transform.Translate(Vector3.forward * Time.deltaTime * 100 * zoomSpeed * Input.GetAxis("Mouse ScrollWheel"));
+            currentZoom = Vector3.Distance(transform.position, cam.transform.position);
         }
     }
 
@@ -83,10 +85,10 @@ public class CameraController : MonoBehaviour
 
     IEnumerator ZoomAnimation()
     {
-        float distance = 1;
+        float distance = Vector3.Distance(transform.position, cam.transform.position) - currentZoom;
         while (distance > 0)
         {
-            distance = Vector3.Distance(transform.position, cam.transform.position) - 60;
+            distance = Vector3.Distance(transform.position, cam.transform.position) - currentZoom;
             cam.transform.Translate(Vector3.forward * Time.deltaTime * 80);
             yield return null;
         }

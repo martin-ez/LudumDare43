@@ -124,22 +124,22 @@ public class LevelController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space))
             {
-                nextInput = Time.time + 1f;
+                nextInput = Time.time + 0.5f;
                 NextCharacter();
             }
             else if (Input.GetKey(KeyCode.Keypad1) || Input.GetKey(KeyCode.Alpha1))
             {
-                nextInput = Time.time + 1f;
+                nextInput = Time.time + 0.5f;
                 ChangeCharacter(0);
             }
             else if (Input.GetKey(KeyCode.Keypad2) || Input.GetKey(KeyCode.Alpha2))
             {
-                nextInput = Time.time + 1f;
+                nextInput = Time.time + 0.5f;
                 ChangeCharacter(1);
             }
             else if (Input.GetKey(KeyCode.Keypad3) || Input.GetKey(KeyCode.Alpha3))
             {
-                nextInput = Time.time + 1f;
+                nextInput = Time.time + 0.5f;
                 ChangeCharacter(2);
             }
             else if (Input.GetKey(KeyCode.R))
@@ -148,19 +148,7 @@ public class LevelController : MonoBehaviour
                 Restart();
             }
         }
-        if (state == LevelState.Playing)
-        {
-            currentTime += Time.deltaTime;
-            if (builder.time > 0) ui.ChangeTimer(builder.time - (int)currentTime, builder.time);
-            if (builder.time > 0 && currentTime > builder.time * 0.5f)
-            {
-                float i = currentTime / (builder.time * 0.5f);
-                float threshold = Mathf.Lerp(maxDistance, 0f, Easing.Ease(i, Easing.Functions.Linear));
-                map.Destroy(threshold);
-                if (i > 1) GameOver();
-            }
-        }
-        else if (state == LevelState.Scrolls)
+        if (state == LevelState.Scrolls)
         {
             if (Input.GetKey(KeyCode.Space) && Time.time > nextInput)
             {
@@ -180,6 +168,22 @@ public class LevelController : MonoBehaviour
         {
             TogglePause();
             nextInput = Time.time + 1f;
+        }
+    }
+
+    private void Update()
+    {
+        if (state == LevelState.Playing)
+        {
+            currentTime += Time.deltaTime;
+            if (builder.time > 0) ui.ChangeTimer(builder.time - (int)currentTime, builder.time);
+            if (builder.time > 0 && currentTime > builder.time * 0.5f)
+            {
+                float i = (currentTime - (builder.time * 0.5f)) / (builder.time * 0.5f);
+                float threshold = Mathf.Lerp(maxDistance, 0f, Easing.Ease(i, Easing.Functions.Linear));
+                map.Destroy(threshold);
+                if (i > 1) GameOver();
+            }
         }
     }
 
@@ -365,7 +369,7 @@ public class LevelController : MonoBehaviour
             if (!characters[player].AlreadyDeposit())
             {
                 score += 100;
-                score += money[player] - builder.money;
+                score += (money[player] - builder.money) * 10;
             }
             ui.ChangeScore(score);
             characters[player].Hide();

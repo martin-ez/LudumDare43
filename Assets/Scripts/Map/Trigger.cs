@@ -21,6 +21,7 @@ public class Trigger : MapBlock
         base.Init();
         nextInput = Time.time;
         obstacle = map.GetObstacle(code);
+        obstacle.OnChangeState += ObstacleChange;
         obstacle.OnDestroy += ObstacleDestroy;
     }
 
@@ -31,12 +32,11 @@ public class Trigger : MapBlock
 
     public override bool Action(int player, bool isInteractible)
     {
-        if (interactible != null) return interactible.Action(player);
+        if (interactible != null) return interactible.Action(player, isInteractible);
         if (!destroy && this.player == player && (type == TriggerType.Button || Time.time > nextInput))
         {
             obstacle.ChangeState();
-            FindObjectOfType<AudioManager>().PlaySound(AudioManager.Sound.Action);
-            StartCoroutine(ActionAnimation());
+            FindObjectOfType<AudioManager>().PlaySound(AudioManager.Sound.Action);          
             nextInput = Time.time + inputCooldown;
         }
         return (type == TriggerType.Button && this.player == player);
@@ -48,6 +48,11 @@ public class Trigger : MapBlock
         StartCoroutine(ActionAnimation());
     }
 
+    private void ObstacleChange()
+    {
+        StartCoroutine(ActionAnimation());
+    }
+
     private void ObstacleDestroy()
     {
         base.Destroy(0);
@@ -55,7 +60,7 @@ public class Trigger : MapBlock
 
     private void Update()
     {
-        if (obstacle.GetState() && type == TriggerType.Switch)
+        if (obstacle!= null && obstacle.GetState() && type == TriggerType.Switch)
         {
             transform.Find("Model/Paint/Actioner").Rotate(Vector3.up * Time.deltaTime * 100);
         }

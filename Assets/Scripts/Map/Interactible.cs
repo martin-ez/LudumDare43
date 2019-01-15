@@ -29,10 +29,13 @@ public class Interactible : MonoBehaviour
 
     public virtual void Init(MapBlock block, int player)
     {
-        Renderer[] rend = transform.Find("Model/Paint").GetComponentsInChildren<Renderer>();
-        for (int i = 0; i < rend.Length; i++)
+        if (transform.Find("Model/Paint") != null)
         {
-            rend[i].material = playerMaterials[player];
+            Renderer[] rend = transform.Find("Model/Paint").GetComponentsInChildren<Renderer>();
+            for (int i = 0; i < rend.Length; i++)
+            {
+                rend[i].material = playerMaterials[player];
+            }
         }
         nextInput = Time.time;
         level = FindObjectOfType<LevelController>();
@@ -45,18 +48,23 @@ public class Interactible : MonoBehaviour
         this.player = player;
         if (type == InteractibleType.Money)
         {
-            value = Random.Range(1, 7);
+            value = Random.Range(2, 7);
         }
         else if (type == InteractibleType.Fans)
         {
-            value = Random.Range(1, 20);
+            value = Random.Range(3, 20);
         }
     }
 
-    public virtual bool Action(int player)
+    public virtual bool Action(int player, bool isInteractible)
     {
-        if (!destroy && Time.time > nextInput)
+        if (!destroy)
         {
+            if((type == InteractibleType.Money || type == InteractibleType.Fans) && isInteractible)
+            {
+                Destroy();
+                return true;
+            }
             if (type == InteractibleType.Money)
             {
                 level.CollectMoney(player, value);
@@ -92,18 +100,21 @@ public class Interactible : MonoBehaviour
         movementTime = current.movementTime;
         Vector3 diff = Vector3.Normalize(transform.position - current.transform.position);
 
-        MapBlock block = map.GetBlock((int)transform.position.x / 10 + (int)diff.x, (int)transform.position.z / 10 + (int)diff.z);
+        MapBlock block = map.GetBlock((int)Mathf.Round(transform.position.x) / 10 + (int)Mathf.Round(diff.x), (int)Mathf.Round(transform.position.z) / 10 + (int)Mathf.Round(diff.z));
         if (block != null)
         {
             if (block.Action(player, true))
             {
-                if (currentBlock != null) currentBlock.OnDestroy -= Destroy;
-                currentBlock.Leave();
-                currentBlock.RemoveInteractible();
+                if (currentBlock != null)
+                {
+                    currentBlock.OnDestroy -= Destroy;
+                    currentBlock.RemoveInteractible();
+                    currentBlock.Leave();
+                }
                 block.AddInteractible(this);
                 block.OnDestroy += Destroy;
                 currentBlock = block;
-                Vector3 newPos = new Vector3(transform.position.x + diff.x * 10, 0, transform.position.z + diff.z * 10);
+                Vector3 newPos = block.transform.position;
                 StartCoroutine(MoveAnimation(newPos));
                 nextInput = Time.time + inputCooldown;
                 return true;

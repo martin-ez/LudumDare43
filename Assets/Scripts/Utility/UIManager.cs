@@ -204,7 +204,7 @@ public class UIManager : MonoBehaviour
             + (fans > 0 ? "<b>Fans:</b> " + "000 / " + minFans + "\n" : "");
         yield return new WaitForSeconds(delay);
 
-        float statDuration = score * 0.01f;
+        float statDuration = score * 0.005f;
         float i = 0;
         float time = 0;
         while (i < 1)

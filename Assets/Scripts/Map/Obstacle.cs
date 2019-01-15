@@ -14,6 +14,7 @@ public class Obstacle : MapBlock
 
     public ObstacleType type;
     private bool state;
+    private bool changeAtLeave;
 
     public Action OnChangeState;
 
@@ -21,6 +22,7 @@ public class Obstacle : MapBlock
     {
         base.Init();
         state = false;
+        changeAtLeave = false;
     }
 
     public override bool Action(int player, bool isInteractible)
@@ -28,6 +30,7 @@ public class Obstacle : MapBlock
         if (isInteractible) return false;
         if (!destroy && state)
         {
+            character = true;
             return true;
         }
         FindObjectOfType<AudioManager>().PlaySound(AudioManager.Sound.No);
@@ -36,10 +39,17 @@ public class Obstacle : MapBlock
 
     public void ChangeState()
     {
-        state = !state;
-        if (OnChangeState != null) OnChangeState();
-        StopAllCoroutines();
-        StartCoroutine(StateAnimation());
+        if (character && state)
+        {
+            changeAtLeave = true;
+        }
+        else
+        {
+            state = !state;
+            if (OnChangeState != null) OnChangeState();
+            StopAllCoroutines();
+            StartCoroutine(StateAnimation());
+        }
     }
 
     public bool GetState()
@@ -47,6 +57,17 @@ public class Obstacle : MapBlock
         return state;
     }
 
+    public override void Leave()
+    {
+        character = false;
+        if (changeAtLeave)
+        {
+            state = !state;
+            if (OnChangeState != null) OnChangeState();
+            StopAllCoroutines();
+            StartCoroutine(StateAnimation());
+        }
+    }
 
     IEnumerator StateAnimation()
     {

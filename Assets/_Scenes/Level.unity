@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 8
   m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
+  m_FogColor: {r: 0.27450982, g: 0.7568628, b: 0.68235296, a: 1}
+  m_FogMode: 1
   m_FogDensity: 0.01
   m_LinearFogStart: 0
-  m_LinearFogEnd: 300
+  m_LinearFogEnd: 2000
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.45688373, g: 0.50705254, b: 0.5864432, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1005,7 +1005,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.92898136, b: 0.7352941, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -1038,13 +1038,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 232169557}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.51899153, y: -0.21828574, z: 0.13906334, w: 0.81465364}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 65, y: -30, z: 0}
 --- !u!1 &240708465
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,6 +1818,7 @@ GameObject:
   - component: {fileID: 432995837}
   - component: {fileID: 432995836}
   - component: {fileID: 432995835}
+  - component: {fileID: 432995839}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1864,7 +1865,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: -1
+  m_RenderingPath: 3
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
@@ -1888,6 +1889,18 @@ Transform:
   m_Father: {fileID: 1580723718}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: -45, z: 0}
+--- !u!114 &432995839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 432995834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: ece4cb58e054e6a489e79b3a50973212, type: 2}
 --- !u!1 &474363396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2236,7 +2249,11 @@ MonoBehaviour:
   - {fileID: 4900000, guid: be30809823ecddf47a125799f443318f, type: 3}
   - {fileID: 4900000, guid: 207315170315dc84e9712a183be64022, type: 3}
   - {fileID: 4900000, guid: c909636e3a703054f9961394dccab6ab, type: 3}
-  chapter2Blueprints: []
+  - {fileID: 4900000, guid: 646ae7ae4487f124289820fec3179fb0, type: 3}
+  - {fileID: 4900000, guid: 7dc5c8212d5cdf64d8cf736cc154baec, type: 3}
+  chapter2Blueprints:
+  - {fileID: 4900000, guid: e3dfdb95234dd19458ed72f0aae7017a, type: 3}
+  - {fileID: 4900000, guid: 4a2808c9842283b4881622ae9b4401cc, type: 3}
   chapter3Blueprints: []
   characterPrefabs:
   - {fileID: 1683932928120118, guid: 2ee7ff2025bbd144b80892640d1530f7, type: 2}

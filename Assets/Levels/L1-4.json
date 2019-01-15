@@ -1,0 +1,561 @@
+{
+  "chapter": 0,
+  "level": 3,
+  "time": 45,
+  "score": 200,
+  "money": 0,
+  "fans": 0,
+  "scrolls": [
+    {
+      "action": "",
+      "text": "Drummy and Bassy clicked rigth away. They knew that was the start of something big, so they keep playing together."
+    },
+    {
+      "action": "map",
+      "text": "Remember that only the appropiate character can interact with objects."
+    }
+  ],
+  "blocks": [
+    {
+      "xCoord": -8,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 3,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -7,
+      "zCoord": 4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -7,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -7,
+      "zCoord": 2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -6,
+      "zCoord": 4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -6,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -6,
+      "zCoord": 2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -6,
+      "zCoord": -1,
+      "block": "ST",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "BD1",
+      "alias": []
+    },
+    {
+      "xCoord": -6,
+      "zCoord": -2,
+      "block": "CO",
+      "player": 0,
+      "variation": 0,
+      "rotation": 1,
+      "code": "BD1",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": 4,
+      "block": "ES",
+      "player": 1,
+      "variation": 1,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": 2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 2,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": -1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": -2,
+      "block": "BO",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "BD1",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -5,
+      "zCoord": -5,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": 4,
+      "block": "BT",
+      "player": 1,
+      "variation": 0,
+      "rotation": 0,
+      "code": "GB1",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": 3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": 2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": 0,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -4,
+      "zCoord": -5,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": 4,
+      "block": "CO",
+      "player": 1,
+      "variation": 0,
+      "rotation": 3,
+      "code": "GB1",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": 3,
+      "block": "CO",
+      "player": 1,
+      "variation": 1,
+      "rotation": 0,
+      "code": "GB1",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": 2,
+      "block": "CO",
+      "player": 1,
+      "variation": 1,
+      "rotation": 0,
+      "code": "GB1",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": 0,
+      "block": "GO",
+      "player": 1,
+      "variation": 2,
+      "rotation": 1,
+      "code": "GB1",
+      "alias": ["-3:1","-3:-1"]
+    },
+    {
+      "xCoord": -3,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -3,
+      "zCoord": -5,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": 1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": 0
+      ,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -1,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -2,
+      "zCoord": -5,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": -1,
+      "zCoord": -5,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 0,
+      "zCoord": -2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 0,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 0,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 0,
+      "zCoord": -5,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 0,
+      "zCoord": -6,
+      "block": "ES",
+      "player": 1,
+      "variation": 3,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 1,
+      "zCoord": -2,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 1,
+      "zCoord": -3,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 1,
+      "zCoord": -4,
+      "block": "ES",
+      "player": 1,
+      "variation": 2,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    },
+    {
+      "xCoord": 1,
+      "zCoord": -5,
+      "block": "ES",
+      "player": 0,
+      "variation": 0,
+      "rotation": 0,
+      "code": "",
+      "alias": []
+    }
+  ]
+}

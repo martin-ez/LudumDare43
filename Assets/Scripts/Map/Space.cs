@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Space : MapBlock
 {
@@ -13,14 +11,17 @@ public class Space : MapBlock
     private bool spawnMoney;
     private bool spawnFans;
     private float nextAttempt;
+    private float attemptCooldown = 5f;
 
     public void Update()
     {
-        if (interactible == null && Time.time > nextAttempt && (spawnMoney || spawnFans))
+        if (!destroy && !character && interactible == null && Time.time > nextAttempt && (spawnMoney || spawnFans))
         {
-            nextAttempt = Time.time + 2f;
+            nextAttempt = Time.time + attemptCooldown;
+            attemptCooldown -= 0.1f;
+            attemptCooldown = Mathf.Clamp(attemptCooldown, 2f, 5f);
             float chance = Random.value;
-            if (chance < 0.15)
+            if (chance < 0.0075)
             {
                 if (spawnMoney && !spawnFans)
                 {
@@ -51,6 +52,8 @@ public class Space : MapBlock
         GameObject created = Instantiate(moneyPrefab);
         Interactible interact = created.GetComponent<Interactible>();
         interact.Init(this, player);
+        created.transform.SetParent(transform);
+        created.transform.localPosition = Vector3.zero;
     }
 
     private void SpawnFans()
@@ -66,9 +69,9 @@ public class Space : MapBlock
         {
             if (interactible != null)
             {
-                if (interactible.Action(player))
+                if (interactible.Action(player, isInteractible))
                 {
-                    character = true;
+                    if (!isInteractible) character = true;
                     return true;
                 }
                 else
@@ -123,7 +126,7 @@ public class Space : MapBlock
         GameObject created = Instantiate(toCreate);
         Interactible interact = created.GetComponent<Interactible>();
         interact.Init(this, player);
-        nextAttempt = Time.time + 2f;
+        nextAttempt = Time.time + attemptCooldown;
     }
 
     public override void Leave()

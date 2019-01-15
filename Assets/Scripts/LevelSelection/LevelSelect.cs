@@ -66,13 +66,13 @@ public class LevelSelect : MonoBehaviour
         {
             currentLevel++;
             //TODO Remove this
-            if (currentLevel == 3 && currentChapter == 0)
+            if (currentLevel == 2 && currentChapter == 1)
             {
                 StartCoroutine(CenterCamera(1, 2, 1.5f, 1f, false));
                 StartCoroutine(FinishGame(0f, 2.5f));
                 endGame = true;
             }
-            if (currentLevel == 5)
+            else if (currentLevel == 5)
             {
                 currentLevel = 0;
                 currentChapter++;
@@ -278,7 +278,7 @@ public class LevelSelect : MonoBehaviour
         {
             time += Time.deltaTime;
             i = time / animationTime;
-            chapters[chapter].eulerAngles = Vector3.forward * Mathf.Lerp(180, 0, Easing.Ease(i, Easing.Functions.CubicEaseInOut));
+            chapters[chapter].eulerAngles = Vector3.right * Mathf.Lerp(180, 0, Easing.Ease(i, Easing.Functions.CubicEaseInOut));
             yield return null;
         }
         chapters[chapter].eulerAngles = Vector3.zero;
